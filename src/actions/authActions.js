@@ -15,11 +15,11 @@ function setCurrentUser(decoded) {
 }
 
 // User loading
-function setUserLoading () {
-    return {
-        type: USER_LOADING,
-    }
-}
+// function setUserLoading () {
+//     return {
+//         type: USER_LOADING,
+//     }
+// }
 
 function getErrors (err) {
     return {
@@ -32,7 +32,7 @@ function getErrors (err) {
 export function registerUser (userData, history) {
     return (dispatch) => {
         return axios
-            .post("/api/users/register", userData)
+            .post("http://localhost:5000/api/users/register", userData)
             .then((res) => history.push('/login')) // re-direct to login on successful register
             .catch((err) => dispatch(getErrors(err)));
     }
@@ -42,7 +42,7 @@ export function registerUser (userData, history) {
 export function loginUser (userData) {
     return (dispatch) => {
         axios
-            .post("/api/users/login", userData)
+            .post("http://localhost:5000/api/users/login", userData)
             .then((res) => {
                 // save to localStorage
                 // Set token to localStorage
