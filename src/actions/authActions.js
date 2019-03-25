@@ -39,7 +39,7 @@ export function registerUser (userData, history) {
 }
 
 // Login - get user token
-export function loginUser () {
+export function loginUser (userData) {
     return (dispatch) => {
         axios
             .post("/api/users/login", userData)
